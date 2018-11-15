@@ -238,10 +238,17 @@ class PayloadCreation {
     }
   }
 
-  async transferERC721Token(owner, receiver, propertyId) {
-    const path = `${
-      this.restURL
-    }payloadCreation/issueERC721Token/${owner}/${receiver}/${propertyId}`
+  async transferERC721Token(owner, receiver, propertyId, tokenId = undefined) {
+    let path
+    if (tokenId !== undefined) {
+      path = `${
+        this.restURL
+      }payloadCreation/issueERC721Token/${owner}/${receiver}/${propertyId}/${tokenId}`
+    } else {
+      path = `${
+        this.restURL
+      }payloadCreation/issueERC721Token/${owner}/${receiver}/${propertyId}`
+    }
     try {
       const response = await axios.post(path)
       return response.data
@@ -251,10 +258,15 @@ class PayloadCreation {
     }
   }
 
-  async destroyERC721Token(propertyId, tokenId) {
-    const path = `${
-      this.restURL
-    }payloadCreation/destroyERC721Token/${propertyId}/${tokenId}`
+  async destroyERC721Token(propertyId, tokenId = undefined) {
+    let path
+    if (tokenId !== undefined) {
+      path = `${
+        this.restURL
+      }payloadCreation/destroyERC721Token/${propertyId}/${tokenId}`
+    } else {
+      path = `${this.restURL}payloadCreation/destroyERC721Token/${propertyId}`
+    }
     try {
       const response = await axios.post(path)
       return response.data
