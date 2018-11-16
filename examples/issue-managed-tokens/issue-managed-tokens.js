@@ -11,10 +11,10 @@ const NETWORK = `testnet`
 
 // This is the WH propertyId of the token that this program will be creating
 // new tokens for.
-const PROPERTY_ID = 460
+const PROPERTY_ID = 196
 
 // The quantity of new tokens to issue.
-const TOKEN_QTY = 2345
+const TOKEN_QTY = 1000000
 
 // Instantiate Wormhole based on the network.
 let Wormhole
