@@ -9,7 +9,7 @@ const NETWORK = `testnet`
 const RECV_ADDR = ``
 
 // The amount of BCH to send, in satoshis. 1 satoshi = 0.00000001 BCH
-const AMOUNT_TO_SEND = 100000000
+const AMOUNT_TO_SEND = 10000
 
 const WH = require("../../lib/Wormhole").default
 
@@ -110,7 +110,7 @@ async function sendBch() {
   // output rawhex
   const hex = tx.toHex()
   console.log(`Transaction raw hex: `)
-  //console.log(hex)
+  console.log(hex)
 
   // sendRawTransaction to running BCH node
   const broadcast = await Wormhole.RawTransactions.sendRawTransaction(hex)
