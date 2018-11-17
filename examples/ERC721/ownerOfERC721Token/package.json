@@ -1,11 +1,11 @@
 {
-  "name": "get-erc721-property-news",
+  "name": "owner-of-erc721-Token",
   "version": "1.0.0",
-  "description": "Get ERC721 Property News",
-  "main": "get-erc721-property-news.js",
+  "description": "Owner of ERC721 Token",
+  "main": "owner-of-erc721-Token.js",
   "scripts": {
     "test": "echo no tests yet",
-    "start": "node get-erc721-property-news.js"
+    "start": "node owner-of-erc721-Token.js"
   },
   "repository": {
     "type": "git",
