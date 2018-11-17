@@ -18,7 +18,7 @@ const fs = require("fs")
 // Open the wallet generated with create-wallet.
 let walletInfo
 try {
-  walletInfo = require(`../create-wallet/wallet.json`)
+  walletInfo = require(`../../create-wallet/wallet.json`)
 } catch (err) {
   console.log(
     `Could not open wallet.json. Generate a wallet with create-wallet first.
@@ -28,7 +28,7 @@ try {
 }
 
 // Create a managed token.
-async function createERC721Property() {
+async function issueERC721Property() {
   try {
     const mnemonic = walletInfo.mnemonic
 
@@ -104,7 +104,7 @@ async function createERC721Property() {
     console.log(err)
   }
 }
-createERC721Property()
+issueERC721Property()
 
 // SUPPORT/PRIVATE FUNCTIONS BELOW
 
