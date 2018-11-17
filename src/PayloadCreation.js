@@ -238,17 +238,11 @@ class PayloadCreation {
     }
   }
 
-  async transferERC721Token(owner, receiver, propertyId, tokenId = undefined) {
-    let path
-    if (tokenId !== undefined) {
-      path = `${
-        this.restURL
-      }payloadCreation/issueERC721Token/${owner}/${receiver}/${propertyId}/${tokenId}`
-    } else {
-      path = `${
-        this.restURL
-      }payloadCreation/issueERC721Token/${owner}/${receiver}/${propertyId}`
-    }
+  async transferERC721Token(propertyId, tokenId) {
+    const path = `${
+      this.restURL
+    }payloadCreation/transferERC721Token/${propertyId}/${tokenId}`
+
     try {
       const response = await axios.post(path)
       return response.data
