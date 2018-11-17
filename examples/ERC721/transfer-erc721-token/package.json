@@ -1,11 +1,11 @@
 {
-  "name": "owner-of-erc721-token",
+  "name": "transfer-erc721-token",
   "version": "1.0.0",
-  "description": "Owner of ERC721 Token",
-  "main": "owner-of-erc721-token.js",
+  "description": "Transfer ERC721 Token",
+  "main": "transfer-erc721-token.js",
   "scripts": {
     "test": "echo no tests yet",
-    "start": "node owner-of-erc721-token.js"
+    "start": "node transfer-erc721-token.js"
   },
   "repository": {
     "type": "git",

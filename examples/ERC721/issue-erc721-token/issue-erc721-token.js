@@ -27,7 +27,6 @@ try {
   process.exit(0)
 }
 
-// Create a managed token.
 async function issueERC721Token() {
   try {
     const mnemonic = walletInfo.mnemonic

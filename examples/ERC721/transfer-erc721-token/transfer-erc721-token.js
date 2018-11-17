@@ -14,6 +14,7 @@ if (NETWORK === `mainnet`)
 else Wormhole = new WH({ restURL: `https://trest.bitcoin.com/v1/` })
 
 const fs = require("fs")
+const RECV_ADDR = "bitcoincash:qqeuq3yxsr9rys39am985gcv7xg6hzzqqgu9x00ua2"
 
 // Open the wallet generated with create-wallet.
 let walletInfo
@@ -27,7 +28,7 @@ try {
   process.exit(0)
 }
 
-async function issueERC721Property() {
+async function transferERC721Token() {
   try {
     const mnemonic = walletInfo.mnemonic
 
@@ -48,13 +49,9 @@ async function issueERC721Property() {
     const cashAddress = Wormhole.HDNode.toCashAddress(change)
     // const cashAddress = walletInfo.cashAddress
 
-    // Create the ERC721 property.
-    const ERC721Property = await Wormhole.PayloadCreation.issueERC721Property(
-      "CryptoBadger", // name.
-      "CRYPTOBADGER", // symbol
-      "Collect and breed digital Honey Badgers!", // data
-      "badgerwallet.cash", // URL
-      100000 // totalNumber
+    const transferERC721Token = await Wormhole.PayloadCreation.transferERC721Token(
+      "0x02", // propertyId
+      "0x01" // tokenId
     )
 
     // Get a utxo to use for this transaction.
@@ -68,11 +65,10 @@ async function issueERC721Property() {
     // Add the token information as an op-return code to the tx.
     const opReturn = await Wormhole.RawTransactions.opReturn(
       rawTx,
-      ERC721Property
+      transferERC721Token
     )
 
-    // Set the destination/recieving address, with the actual amount of BCH set to a minimal amount.
-    const ref = await Wormhole.RawTransactions.reference(opReturn, cashAddress)
+    const ref = await Wormhole.RawTransactions.reference(opReturn, RECV_ADDR)
 
     // Generate a change output.
     const changeHex = await Wormhole.RawTransactions.change(
@@ -103,7 +99,7 @@ async function issueERC721Property() {
     console.log(err)
   }
 }
-issueERC721Property()
+transferERC721Token()
 
 // SUPPORT/PRIVATE FUNCTIONS BELOW
 
