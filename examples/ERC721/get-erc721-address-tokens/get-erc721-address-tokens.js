@@ -22,12 +22,12 @@ try {
 async function getERC721AddressTokens() {
   try {
     try {
-      const ownerOfERC721Token = await Wormhole.DataRetrieval.ERC721AddressTokens(
-        "qrhncn6hgkhljqg4fuq4px5qg74sjz9fqqj64s9la9",
+      const ERC721AddressTokens = await Wormhole.DataRetrieval.ERC721AddressTokens(
+        "qqeuq3yxsr9rys39am985gcv7xg6hzzqqgu9x00ua2",
         "0000000000000000000000000000000000000000000000000000000000000002"
       )
 
-      console.log(JSON.stringify(ownerOfERC721Token, null, 2))
+      console.log(JSON.stringify(ERC721AddressTokens, null, 2))
     } catch (error) {
       if (error.message === "Address not found") console.log(`No tokens found.`)
     }

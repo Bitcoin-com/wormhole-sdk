@@ -44,7 +44,6 @@ async function destroyERC721Token() {
     const cashAddress = Wormhole.HDNode.toCashAddress(change)
     // const cashAddress = walletInfo.cashAddress
 
-    // Create the ERC721 token.
     const destroyERC721Token = await Wormhole.PayloadCreation.destroyERC721Token(
       "0x02",
       "0x01"

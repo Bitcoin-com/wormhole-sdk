@@ -260,18 +260,6 @@ class DataRetrieval {
     }
   }
 
-  async ERC721PropertyDestroyTokens(propertyId) {
-    try {
-      const response = await axios.get(
-        `${this.restURL}dataRetrieval/ERC721PropertyDestroyTokens/${propertyId}`
-      )
-      return response.data
-    } catch (error) {
-      if (error.response && error.response.data) throw error.response.data
-      throw error
-    }
-  }
-
   async ERC721PropertyNews(propertyId) {
     try {
       const response = await axios.get(
@@ -302,6 +290,18 @@ class DataRetrieval {
         `${
           this.restURL
         }dataRetrieval/ownerOfERC721Token/${propertyId}/${tokenId}/${address}`
+      )
+      return response.data
+    } catch (error) {
+      if (error.response && error.response.data) throw error.response.data
+      throw error
+    }
+  }
+
+  async ERC721PropertyDestroyTokens(propertyId) {
+    try {
+      const response = await axios.get(
+        `${this.restURL}dataRetrieval/ERC721PropertyDestroyTokens/${propertyId}`
       )
       return response.data
     } catch (error) {
