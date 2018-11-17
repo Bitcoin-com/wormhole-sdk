@@ -5,7 +5,7 @@ const WH = require("../../../lib/Wormhole").default
 // Instantiate Wormhole based on the network.
 let Wormhole
 if (NETWORK === `mainnet`)
-  Wormhole = new WH({ restURL: `http://localhost:3000/v1/` })
+  Wormhole = new WH({ restURL: `https://rest.bitcoin.com/v1/` })
 else Wormhole = new WH({ restURL: `https://trest.bitcoin.com/v1/` })
 
 // Open the wallet generated with create-wallet.
