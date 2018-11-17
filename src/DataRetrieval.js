@@ -284,10 +284,10 @@ class DataRetrieval {
     }
   }
 
-  async ERC721TokenNews(propertyId) {
+  async ERC721TokenNews(propertyId, tokenId) {
     try {
       const response = await axios.get(
-        `${this.restURL}dataRetrieval/ERC721TokenNews/${propertyId}`
+        `${this.restURL}dataRetrieval/ERC721TokenNews/${propertyId}/${tokenId}`
       )
       return response.data
     } catch (error) {
