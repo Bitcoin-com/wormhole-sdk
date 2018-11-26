@@ -211,6 +211,64 @@ class PayloadCreation {
       throw error
     }
   }
+
+  async issueERC721Property(name, symbol, data, url, totalNumber) {
+    const path = `${
+      this.restURL
+    }payloadCreation/issueERC721Property/${name}/${symbol}/${data}/${url}/${totalNumber}`
+    try {
+      const response = await axios.post(path)
+      return response.data
+    } catch (error) {
+      if (error.response && error.response.data) throw error.response.data
+      throw error
+    }
+  }
+
+  async issueERC721Token(propertyId, tokenId, attributes, url) {
+    const path = `${
+      this.restURL
+    }payloadCreation/issueERC721Token/${propertyId}/${tokenId}/${attributes}/${url}`
+    try {
+      const response = await axios.post(path)
+      return response.data
+    } catch (error) {
+      if (error.response && error.response.data) throw error.response.data
+      throw error
+    }
+  }
+
+  async transferERC721Token(propertyId, tokenId) {
+    const path = `${
+      this.restURL
+    }payloadCreation/transferERC721Token/${propertyId}/${tokenId}`
+
+    try {
+      const response = await axios.post(path)
+      return response.data
+    } catch (error) {
+      if (error.response && error.response.data) throw error.response.data
+      throw error
+    }
+  }
+
+  async destroyERC721Token(propertyId, tokenId = undefined) {
+    let path
+    if (tokenId !== undefined) {
+      path = `${
+        this.restURL
+      }payloadCreation/destroyERC721Token/${propertyId}/${tokenId}`
+    } else {
+      path = `${this.restURL}payloadCreation/destroyERC721Token/${propertyId}`
+    }
+    try {
+      const response = await axios.post(path)
+      return response.data
+    } catch (error) {
+      if (error.response && error.response.data) throw error.response.data
+      throw error
+    }
+  }
 }
 
 export default PayloadCreation

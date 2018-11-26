@@ -88,7 +88,7 @@ async function sendBch() {
   // add output w/ address and amount to send
   transactionBuilder.addOutput(RECV_ADDR, satoshisToSend)
   transactionBuilder.addOutput(
-    Wormhole.Address.toLegacyAddress(RECV_ADDR),
+    Wormhole.Address.toLegacyAddress(SEND_ADDR),
     remainder
   )
 
