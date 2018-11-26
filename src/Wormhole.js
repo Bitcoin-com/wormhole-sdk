@@ -3,6 +3,7 @@ import DataRetrieval from "./DataRetrieval"
 import PayloadCreation from "./PayloadCreation"
 import RawTransactions from "./RawTransactions"
 import ERC20 from "./ERC20"
+import Utility from "./Utility"
 
 class Wormhole extends BITBOXSDK {
   constructor(config) {
@@ -23,6 +24,7 @@ class Wormhole extends BITBOXSDK {
       this.PayloadCreation,
       this.RawTransactions
     )
+    this.Utility = new Utility(this)
   }
 }
 

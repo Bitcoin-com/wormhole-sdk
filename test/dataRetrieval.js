@@ -1,5 +1,4 @@
 // let fixtures = require('./fixtures/DataRetrieval.json')
-const chai = require("chai")
 const assert = require("assert")
 const wh = require("./../lib/Wormhole").default
 const Wormhole = new wh({
