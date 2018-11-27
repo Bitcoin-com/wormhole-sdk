@@ -1,6 +1,6 @@
 {
   "name": "wormhole-sdk",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "BITBOX lib for Wormhole",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "bigi": "^1.4.2",
-    "bitbox-sdk": "^2.2.2",
+    "bitbox-sdk": "^2.2.3",
     "buffer": "^5.1.0",
     "chalk": "^2.3.0",
     "clear": "0.1.0",
@@ -60,7 +60,6 @@
     "flow-bin": "^0.83.0",
     "mocha": "^5.2.0",
     "node-mocks-http": "^1.7.2",
-    "nodemon": "^1.8.1",
     "nyc": "^13.0.1",
     "prettier": "^1.14.3",
     "sinon": "^6.3.3",
