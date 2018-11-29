@@ -14,7 +14,7 @@ class ChangeManagedTokenIssuer {
 
       // Get a utxo to use for this transaction.
       const u = await this.Wormhole.Address.utxo([cashAddress])
-      const utxo = findBiggestUtxo(u[0])
+      const utxo = new FindBiggestUtxo(u[0])
 
       // Create a rawTx using the largest utxo in the wallet.
       utxo.value = utxo.amount

@@ -8,7 +8,6 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/Bitcoin-com/wormhole-sdk.svg)](https://greenkeeper.io/)
 
-
 Wormhole SDK is a superset of the [BITBOX SDK](https://developer.bitcoin.com/bitbox)
 for creating tokens (ERC20 and others) on the Bitcoin Cash network.
 Learn more about Wormhole SDK here:

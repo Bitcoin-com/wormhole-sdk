@@ -12,11 +12,13 @@ class Utility {
     this.Wormhole = Wormhole
   }
 
-  async checkBalance(cashAddress) {
+  async checkBalance(address) {
     const checkBalance = new CheckBalance(this.Wormhole)
 
     try {
-      const balance = await checkBalance.checkBalance(cashAddress)
+      const balance = await checkBalance.checkBalance(
+        this.Wormhole.Address.toCashAddress(address)
+      )
       return balance
     } catch (error) {
       if (error.message === "Address not found") console.log(`No tokens found.`)
