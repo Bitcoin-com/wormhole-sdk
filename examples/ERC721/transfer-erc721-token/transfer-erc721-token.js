@@ -1,7 +1,3 @@
-/*
-  Consume 1 WHC to create a new managed token.
-*/
-
 // Set NETWORK to either testnet or mainnet
 const NETWORK = `mainnet`
 

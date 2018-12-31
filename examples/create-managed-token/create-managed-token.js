@@ -8,7 +8,6 @@ const NETWORK = `testnet`
 const util = require("util")
 util.inspect.defaultOptions = { depth: 1 }
 
-//const WH = require("wormhole-sdk/lib/Wormhole").default
 const WH = require("../../lib/Wormhole").default
 
 // Instantiate Wormhole based on the network.

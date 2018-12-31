@@ -1,11 +1,11 @@
 /*
-  Send existing tokens to another address.
+  revoke managed tokens.
 */
 
 // Set NETWORK to either testnet or mainnet
 const NETWORK = `testnet`
 
-const WH = require("wormhole-sdk/lib/Wormhole").default
+const WH = require("../../lib/Wormhole").default
 
 // Instantiate Wormhole based on the network.
 let Wormhole
@@ -25,7 +25,7 @@ try {
 }
 
 // Change this value to match your token.
-const propertyId = 307
+const propertyId = 220
 
 // Issue new tokens.
 async function revokeManagedTokens() {
@@ -36,9 +36,9 @@ async function revokeManagedTokens() {
     const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
 
     // master HDNode
-    if (NETWORK === `mainnet`)
-      var masterHDNode = Wormhole.HDNode.fromSeed(rootSeed)
-    else var masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+    let masterHDNode
+    if (NETWORK === `mainnet`) masterHDNode = Wormhole.HDNode.fromSeed(rootSeed)
+    else masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
 
     // HDNode of BIP44 account
     const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
@@ -49,7 +49,7 @@ async function revokeManagedTokens() {
     const cashAddress = walletInfo.cashAddress
 
     // Create simple send payload.
-    const payload = await Wormhole.PayloadCreation.revoke(propertyId, "33.0")
+    const payload = await Wormhole.PayloadCreation.revoke(propertyId, "95.0")
 
     // Get a utxo to use for this transaction.
     const u = await Wormhole.Address.utxo([cashAddress])

@@ -5,7 +5,7 @@
 // Set NETWORK to either testnet or mainnet
 const NETWORK = `testnet`
 
-const WH = require("wormhole-sdk/lib/Wormhole").default
+const WH = require("../../lib/Wormhole").default
 
 // Instantiate Wormhole based on the network.
 let Wormhole
@@ -46,25 +46,24 @@ async function createCrowdSale() {
     const change = Wormhole.HDNode.derivePath(account, "0/0")
 
     // get the cash address
-    //let cashAddress = Wormhole.HDNode.toCashAddress(change);
-    const cashAddress = walletInfo.cashAddress
+    const cashAddress = Wormhole.HDNode.toCashAddress(change)
 
     // Create the crowdsale.
     const crowdsale = await Wormhole.PayloadCreation.crowdsale(
       1, // Ecosystem, must be 1.
-      8, // Precision, number of decimal places. Must be 0-8.
+      1, // Precision, number of decimal places. Must be 0-8.
       0, // Predecessor token. 0 for new tokens.
-      "Companies", // Category.
-      "Bitcoin Cash QA", // Subcategory
-      "BCC", // Name/Ticker
-      "developer.bitbox.com", // URL
-      "Crowdsale - Made with BITBOX", // Description.
+      "Category", // Category.
+      "Subcategory", // Subcategory
+      "TICKER", // Name/Ticker
+      "developer.bitcoin.com", // URL
+      "Powered by BITBOX", // Description.
       1, // The identifier of a token eligible to participate in the crowdsale. The only valid option is "1" WHC
       "100", // The amount of tokens granted per unit invested in the crowdsale
-      1883228800, // The deadline of the crowdsale as Unix timestamp
+      1543654799, // The deadline of the crowdsale as Unix timestamp
       0, // An early bird bonus for participants in percent per week
       0, // The value must be 0
-      12345 // The number of tokens to create
+      1000 // The number of tokens to create
     )
 
     // Get a utxo to use for this transaction.
