@@ -4,12 +4,13 @@
 
 // Set NETWORK to either testnet or mainnet
 const NETWORK = `testnet`
+//const NETWORK = `mainnet`
 
 // Replace the address below with the address you want to send the BCH to.
-const RECV_ADDR = ``
+const RECV_ADDR = `bchtest:qqmd9unmhkpx4pkmr6fkrr8rm6y77vckjvqe8aey35`
 
 // The amount of BCH to send, in satoshis. 1 satoshi = 0.00000001 BCH
-const AMOUNT_TO_SEND = 100000000
+const AMOUNT_TO_SEND = 10000
 
 const WH = require("../../lib/Wormhole").default
 
@@ -31,6 +32,7 @@ try {
 }
 
 const SEND_MNEMONIC = walletInfo.mnemonic
+
 // Generate a change address from a Mnemonic of a private key.
 const change = changeAddrFromMnemonic(SEND_MNEMONIC)
 const SEND_ADDR = Wormhole.HDNode.toCashAddress(change)
@@ -110,7 +112,8 @@ async function sendBch() {
   // output rawhex
   const hex = tx.toHex()
   console.log(`Transaction raw hex: `)
-  //console.log(hex)
+  console.log(hex)
+  console.log(" ")
 
   // sendRawTransaction to running BCH node
   const broadcast = await Wormhole.RawTransactions.sendRawTransaction(hex)
@@ -124,7 +127,10 @@ function changeAddrFromMnemonic(mnemonic) {
   const rootSeed = Wormhole.Mnemonic.toSeed(mnemonic)
 
   // master HDNode
-  const masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+  let masterHDNode
+  if (NETWORK === "testnet")
+    masterHDNode = Wormhole.HDNode.fromSeed(rootSeed, "testnet")
+  else masterHDNode = Wormhole.HDNode.fromSeed(rootSeed)
 
   // HDNode of BIP44 account
   const account = Wormhole.HDNode.derivePath(masterHDNode, "m/44'/145'/0'")
