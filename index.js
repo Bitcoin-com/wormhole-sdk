@@ -14,7 +14,7 @@ const repl = require("repl")
 const Wormhole = require("./lib/Wormhole").default
 const clone = require("git-clone")
 
-program.version("1.5.3", "-v, --version")
+program.version("1.6.0", "-v, --version")
 
 program
   .command("new <name>")
