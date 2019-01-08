@@ -22,7 +22,7 @@ const outObj = {}
 
 // create 256 bit BIP39 mnemonic
 const mnemonic = Wormhole.Mnemonic.generate(
-  256,
+  128,
   Wormhole.Mnemonic.wordLists()[lang]
 )
 console.log("BIP44 $BCH Wallet")
